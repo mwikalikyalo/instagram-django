@@ -6,7 +6,7 @@ class Image(models.Model):
   image= models.ImageField(blank=True, null=True)
   image_names= models.CharField(max_length=100)
   image_caption= models.CharField(max_length=5000)
-  likes= models.IntegerField()
+  # likes= models.IntegerField()
   comments= models.CharField(max_length=2000)
   created_date= models.DateField(default=timezone.now)
 
