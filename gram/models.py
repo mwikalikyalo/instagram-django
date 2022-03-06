@@ -11,9 +11,26 @@ class Image(models.Model):
   created_date= models.DateField(default=timezone.now)
 
   profile= models.ForeignKey('auth.user',on_delete=models.CASCADE)
+
+  def save_image(self):
+        self.save()
+    
+  def delete_image(self):
+      Image.objects.filter(id = self.id).delete()
+
+  def update_image(self, updates):
+      Image.objects.filter(id = self.id).update(name = updates)
   
   
 class Profile(models.Model):
   profile_photo= models.ImageField(blank=True, null=True)
   bio= models.CharField(max_length=1000)
 
+  def save_profile(self):
+      self.save()
+    
+  def delete_profile(self):
+      Profile.objects.filter(id = self.id).delete()
+
+  def update_image(self, updates):
+      Profile.objects.filter(id = self.id).update(name = updates)
