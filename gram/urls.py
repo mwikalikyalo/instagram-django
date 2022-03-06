@@ -6,4 +6,6 @@ from .views import (
 
 app_name="gram"
 
-urlpatterns= [path('', ImageListView.as_view(), name='page')]
+urlpatterns= [
+  path('', ImageListView.as_view(), name='page')
+]
