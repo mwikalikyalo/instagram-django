@@ -7,6 +7,9 @@
   <title>Instagram</title>
 </head>
 <body>
-  
+  {% for post in posts %}
+    <p>{{image.profile}}</p>
+    <p>{{image.image_caption}}</p>
+  {% endfor%}
 </body>
 </html>
