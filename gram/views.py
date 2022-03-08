@@ -6,6 +6,6 @@ from django.views.generic import (
 
 # Create your views here.
 class ImageListView(ListView):
-  template_name= "main/page.html"
+  template_name= "page.html"
   queryset= Image.objects.all()
   context_object_name= 'images'
