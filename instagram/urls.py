@@ -17,11 +17,13 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('gram.urls')),
-    path('accounts/', include('registration.backends.simple.urls'))
+    path('accounts/', include('registration.backends.simple.urls')),
+    path('logout/', views.logout, {"next_page": '/'}), 
 ]
 
 # if settings.DEBUG:
