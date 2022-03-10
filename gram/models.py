@@ -1,5 +1,6 @@
 from django.utils import timezone
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 class Image(models.Model):
@@ -28,6 +29,8 @@ class Profile(models.Model):
 
   def save_profile(self):
       self.save()
+
+
     
   def delete_profile(self):
       Profile.objects.filter(id = self.id).delete()

@@ -6,3 +6,4 @@ class ImagesForm(forms.ModelForm):
     class Meta:
         model = Image
         exclude = ['profile', 'created_date']
+
