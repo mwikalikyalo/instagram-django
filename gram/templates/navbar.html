@@ -1,5 +1,5 @@
 {% load static %}
-
+{% load bootstrap5 %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,50 +7,43 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Instagram</title>
-  <script src="https://kit.fontawesome.com/c25ede606d.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="(% static 'css/navbar.css' %)">
+  {% block styles %}
+  {% bootstrap_css %}
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/solid.css">
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock %}
 </head>
 <body>
-  <div class="navigation">
-    <div class="logo">
-      <a class="no-underline" href="#">
-        Instagram
-      </a>
-    </div>
-    <div class="navigation-search-container">
-      <i class="fa fa-search"></i>
-      <input class="search-field" type="text" placeholder="Search">
-      <div class="search-container">
-        <div class="search-container-box">
-          <div class="search-results">
-  
-          </div>
-        </div>
-      </div>
-    </div>
-    <a class="navigation-icons">
-      <a href="#" target ="_blank" class="navigation-link">
-        <i class="fa-solid fa-house"></i>
-      </a>
-      <a href="#" target ="_blank" class="navigation-link">
-        <i class="fa-light fa-comment-dots"></i>
-      </a>
-      <a href="#" target ="_blank" class="navigation-link">
-        <i class="far fa-compass"></i>
-      </a>
-      <a class="navigation-link notifica">
-        <i class="far fa-heart">
-          <div class="notification-bubble-wrapper">
-            <div class="notification-bubble">
-              <span class="notifications-count">99</span>
+  <div class="container-fluid-lg border-bottom">
+    <div class="container-lg" id="navWrapper">
+        <div class="row">
+            <div class="d-flex align-items-center justify-content-evenly">
+                <div id="logo" class="col-md-4">
+                    <a href="{% url 'page'%}">
+                        <div class="my-0 py-0"><img src="{% static 'img/instagram.png'%}" alt="" class="img-fluid"></div>
+                    </a>
+                </div>
+                <div id="searchDiv" class="col-md-4 d-none d-md-flex">
+                    <form action="{% url 'search_profile' %}">
+                        <input type="text" placeholder="&#xF002; Search"
+                            id="search" name="profile" />
+                    </form>
+                </div>
+                <div id="nav" class="col-md-4 flex-grow-1 align-items-center">
+                    <ul class="d-flex align-items-centre justify-content-between">
+                        <li><a href="{% url 'home' %}"><i class='bx bxs-home'></i></a></li>
+                        <li><a href="#"><i class='bx bxl-messenger'></i></a></li>
+                        <li data-bs-toggle="modal" data-bs-target="#uploadModal"><a href="#"><i
+                                    class='bx bx-message-square-add'></i></a></li>
+                        <li><a href="#"><i class='bx bx-heart'></i></a></li>
+                        <li><a href="{% url 'profile'  current_user.username %}"><i class='bx bx-user-circle'></i></a></li>
+                    </ul>
+                </div>
             </div>
-          </div>
-        </i>
-      </a>
-      <a href="/" class="navigation-link">
-        <i class="far fa-user-circle"></i>
-      </a>
+        </div>
     </div>
-  </div>
+   
+</div>
 </body>
 </html>
