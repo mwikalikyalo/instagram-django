@@ -49,11 +49,11 @@ def create_profile(request):
         else:
             form = ProfileForm()
 
-    return render(request, 'create_profile.html', {"form": form, "current_user":current_user}) 
+    return render(request, 'new_profile.html', {"form": form, "current_user":current_user}) 
 
 """View profile"""
 @login_required(login_url='/accounts/login/')
-def profile(request, username):
+def profile(request):
     current_user = request.user
     profile =  Profile.objects.filter(user = User(id = current_user.id)).first()
     images = Image.objects.filter(profile = profile.pk ).all() 
