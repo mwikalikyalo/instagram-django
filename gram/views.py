@@ -9,7 +9,7 @@ from .models import Image, Profile, Comments, Likes
 
 # Create your views here.
 @login_required(login_url='/accounts/login/')
-def home(request):
+def page(request):
     current_user = request.user
     images = Image.objects.all().order_by("date_posted").reverse()
     liked_images = [i for i in Image.objects.all() if Likes.objects.filter(user = request.user, image=i)]
@@ -28,7 +28,7 @@ def home(request):
 
 """New profile page if you are a new user """
 @login_required(login_url='/accounts/login/')
-def create_profile(request):
+def new_profile(request):
     current_user = request.user
 
     try:
