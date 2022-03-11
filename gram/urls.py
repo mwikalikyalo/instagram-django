@@ -1,11 +1,10 @@
 from unicodedata import name
+from . import views
 from django.urls import path
-from .views import (
-  ImageListView
-)
 
 app_name="gram"
 
 urlpatterns= [
-  path('', ImageListView.as_view(), name='page')
+  path('user_login', views.user_login, name="login"),
+
 ]
