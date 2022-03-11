@@ -1,14 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Image, Profile
 from django.contrib.auth.decorators import login_required
-from django.views.generic import (
-  ListView
-)
+from django.contrib.auth import login, authenticate,logout
+from django.contrib import messages
 
 # Create your views here.
-class ImageListView(ListView):
-  template_name= "page.html"
-  queryset= Image.objects.all()
-  context_object_name= 'images'
+def user_login(request):
+  return render(request, 'registration/login.html', {})
+
+
 
 

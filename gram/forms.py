@@ -12,7 +12,6 @@ class CommentsForm(forms.ModelForm):
     class Meta:
         model = Comments
         
-
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
