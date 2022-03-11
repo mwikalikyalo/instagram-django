@@ -1,3 +1,4 @@
+from dataclasses import fields
 from django import forms
 from .models import Comments, Profile, Image
 from django.contrib.auth.models import User
@@ -11,6 +12,7 @@ class ImagesForm(forms.ModelForm):
 class CommentsForm(forms.ModelForm):
     class Meta:
         model = Comments
+        fields= ['comment']
         
 class ProfileForm(forms.ModelForm):
     class Meta:
